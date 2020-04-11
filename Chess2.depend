@@ -540,3 +540,24 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
+1586622409 source:e:\chess-2-player-v1\chess_box.cpp
+	"Chess_Box.h"
+
+1586622409 e:\chess-2-player-v1\chess_box.h
+	<SFML/Graphics.hpp>
+	<bits/stdc++.h>
+	"Units.h"
+
+1586622410 e:\chess-2-player-v1\units.h
+	<SFML/Graphics.hpp>
+	<bits/stdc++.h>
+
+1586622626 source:e:\chess-2-player-v1\main.cpp
+	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
+	<bits/stdc++.h>
+	"Chess_Box.h"
+
+1586622410 source:e:\chess-2-player-v1\units.cpp
+	"Units.h"
+
