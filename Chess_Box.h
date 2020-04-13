@@ -5,7 +5,6 @@
 using namespace std;
 using namespace sf;
 
-
 class Chess_Box
 {
 private:
@@ -22,5 +21,3 @@ public:
     pair<int,int> Get_Pos();
     void Display(RenderWindow &window);
 };
-
-vector<vector<Chess_Box>> Make_Play_Ground();

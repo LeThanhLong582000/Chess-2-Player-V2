@@ -51,6 +51,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Chess.cpp" />
+		<Unit filename="Chess.h" />
 		<Unit filename="Chess_Box.cpp" />
 		<Unit filename="Chess_Box.h" />
 		<Unit filename="Units.cpp" />
