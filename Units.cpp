@@ -35,56 +35,50 @@ void Units::Set_Unit(string unit, string Color)
 {
     if(Color == "Red")
     {
-        if(unit == "Pawn")
+        switch(unit[0])
         {
-            this->sprite.setTextureRect(IntRect(285,0,56,55));
-        }
-        if(unit == "Rock")
-        {
-            this->sprite.setTextureRect(IntRect(0,0,56,55));
-        }
-        if(unit == "Knight")
-        {
-            this->sprite.setTextureRect(IntRect(57,0,56,55));
-        }
-        if(unit == "Bishop")
-        {
-            this->sprite.setTextureRect(IntRect(114,0,56,55));
-        }
-        if(unit == "Queen")
-        {
-            this->sprite.setTextureRect(IntRect(171,0,56,55));
-        }
-        if(unit == "King")
-        {
-            this->sprite.setTextureRect(IntRect(228,0,56,55));
+            case 'P':
+                this->sprite.setTextureRect(IntRect(285,0,56,55));
+                break;
+            case 'R':
+                this->sprite.setTextureRect(IntRect(0,0,56,55));
+                break;
+            case 'K':
+                this->sprite.setTextureRect(IntRect(57,0,56,55));
+                break;
+            case 'B':
+                this->sprite.setTextureRect(IntRect(114,0,56,55));
+                break;
+            case 'Q':
+                this->sprite.setTextureRect(IntRect(171,0,56,55));
+                break;
+            case 'k':
+                this->sprite.setTextureRect(IntRect(228,0,56,55));
+                break;
         }
     }
     else
     {
-        if(unit == "Pawn")
+        switch(unit[0])
         {
-            this->sprite.setTextureRect(IntRect(285,60,56,55));
-        }
-        if(unit == "Rock")
-        {
-            this->sprite.setTextureRect(IntRect(0,60,56,55));
-        }
-        if(unit == "Knight")
-        {
-            this->sprite.setTextureRect(IntRect(57,60,56,55));
-        }
-        if(unit == "Bishop")
-        {
-            this->sprite.setTextureRect(IntRect(114,60,56,55));
-        }
-        if(unit == "Queen")
-        {
-            this->sprite.setTextureRect(IntRect(171,60,56,55));
-        }
-        if(unit == "King")
-        {
-            this->sprite.setTextureRect(IntRect(228,60,56,55));
+            case 'P':
+                this->sprite.setTextureRect(IntRect(285,60,56,55));
+                break;
+            case 'R':
+                this->sprite.setTextureRect(IntRect(0,60,56,55));
+                break;
+            case 'K':
+                this->sprite.setTextureRect(IntRect(57,60,56,55));
+                break;
+            case 'B':
+                this->sprite.setTextureRect(IntRect(114,60,56,55));
+                break;
+            case 'Q':
+                this->sprite.setTextureRect(IntRect(171,60,56,55));
+                break;
+            case 'k':
+                this->sprite.setTextureRect(IntRect(228,60,56,55));
+                break;
         }
     }
 }

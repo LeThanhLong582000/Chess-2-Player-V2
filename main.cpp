@@ -48,13 +48,14 @@ int main()
                 vector<int> Next;
                 while(true)
                 {
-                    Next = Next_Move();
+                    Next = Next_Move(Play_Ground);
                     if(Play_Ground[Next[0]][Next[1]].Get_Unit().second == "Red" && Can_Move(Next[0], Next[1], Next[2], Next[3], Play_Ground))
                     {
-                        cout << Play_Ground[Next[0]][Next[1]].Get_Unit().first << ' ' << Play_Ground[Next[0]][Next[1]].Get_Unit().second << '\n';
+                        cout << Play_Ground[Next[0]][Next[1]].Get_Unit().first << '\n';
+                        cout << Next[0] << ' ' << Next[1] << ' ' << "To" << ' ' << Next[2] << ' ' << Next[3] << '\n';
+                        if(Play_Ground[Next[2]][Next[3]].Get_Unit().first == "king") window.close();
                         Move(Next[0], Next[1], Next[2], Next[3], Play_Ground);
                         Playing = "White";
-                        cout << Play_Ground[Next[2]][Next[3]].Get_Unit().first << ' ' << Play_Ground[Next[2]][Next[3]].Get_Unit().second << '\n';
                         break;
                     }
                 }
@@ -89,7 +90,7 @@ int main()
                     To_y = ans_y;
                     if(Can_Move(From_x, From_y, To_x, To_y, Play_Ground))
                     {
-                        if(Play_Ground[To_x][To_y].Get_Unit().first == "King")
+                        if(Play_Ground[To_x][To_y].Get_Unit().first == "king")
                         {
                             window.close();
                         }

@@ -45,3 +45,44 @@ void Chess_Box::Display(RenderWindow &window)
 {
     this->Army.Display(window);
 }
+
+int Chess_Box::Get_Point()
+{
+    if(this->Unit == "None") return 0;
+    if(this->Color == "White")
+    {
+        switch(this->Unit[0])
+        {
+            case 'P':
+                return 10;
+            case 'K':
+                return 30;
+            case 'B':
+                return 30;
+            case 'R':
+                return 50;
+            case 'Q':
+                return 90;
+            case 'k':
+                return 900;
+        }
+    }
+    else
+    {
+        switch(this->Unit[0])
+        {
+            case 'P':
+                return -10;
+            case 'K':
+                return -30;
+            case 'B':
+                return -30;
+            case 'R':
+                return -50;
+            case 'Q':
+                return -90;
+            case 'k':
+                return -900;
+        }
+    }
+}

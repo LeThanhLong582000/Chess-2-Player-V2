@@ -20,4 +20,5 @@ public:
     void Set_Ori(int x,int y);
     pair<int,int> Get_Pos();
     void Display(RenderWindow &window);
+    int Get_Point();
 };
