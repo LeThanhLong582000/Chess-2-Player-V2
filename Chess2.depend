@@ -552,7 +552,7 @@
 	<SFML/Graphics.hpp>
 	<bits/stdc++.h>
 
-1586819384 source:e:\chess-2-player-v1\main.cpp
+1586928500 source:e:\chess-2-player-v1\main.cpp
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 	<bits/stdc++.h>
@@ -561,10 +561,18 @@
 1586805766 source:e:\chess-2-player-v1\units.cpp
 	"Units.h"
 
-1586819421 source:e:\chess-2-player-v1\chess.cpp
+1586928553 source:e:\chess-2-player-v1\chess.cpp
 	"Chess.h"
 
-1586815762 e:\chess-2-player-v1\chess.h
+1586891110 e:\chess-2-player-v1\chess.h
 	<bits/stdc++.h>
 	"Chess_Box.h"
+	"Way.h"
+
+1586927116 e:\chess-2-player-v1\way.h
+	<bits/stdc++.h>
+
+1586930049 source:e:\chess-2-player-v1\way.cpp
+	<bits/stdc++.h>
+	"Way.h"
 

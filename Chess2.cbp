@@ -57,6 +57,8 @@
 		<Unit filename="Chess_Box.h" />
 		<Unit filename="Units.cpp" />
 		<Unit filename="Units.h" />
+		<Unit filename="Way.cpp" />
+		<Unit filename="Way.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="sfml-audio-2.dll" />
 		<Unit filename="sfml-audio-d-2.dll" />

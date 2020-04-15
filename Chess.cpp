@@ -2,6 +2,8 @@
 
 using namespace std;
 
+int res = 0;
+
 vector<vector<Chess_Box>> Make_Play_Ground()
 {
     vector<vector<Chess_Box>> Play_Ground(10);
@@ -180,156 +182,27 @@ void Move(int From_x, int From_y, int To_x, int To_y, vector<vector<Chess_Box>> 
 
 void Update(int From_x, int From_y, int To_x, int To_y, vector<vector<Chess_Box>> Play_Ground, vector<vector<int>> &Result, int &Max)
 {
+    res++;
     if(!Can_Move(From_x, From_y, To_x, To_y, Play_Ground)) return;
     int Point = Play_Ground[To_x][To_y].Get_Point();
-    vector<int> Next;
-    if(Point > Max)
-    {
-        Max = Point;
-        Result.clear();
-        Next = {From_x, From_y, To_x, To_y};
-        Result.push_back(Next);
-    }
-    if(Point == Max)
-    {
-        Next = {From_x, From_y, To_x, To_y};
-        Result.push_back(Next);
-    }
+    Max = max(Max, Point);
+    Result.push_back({From_x, From_y, To_x, To_y, Point});
 }
 
 vector<int> Next_Move(vector<vector<Chess_Box>> Play_Ground)
 {
-    vector<int> Next;
-    vector<vector<int>> Result;
-    int Max = -1;
-    for(int x = 1; x <= 8; ++x)
+    vector<vector<string>> Map(10);
+    for(vector<string> &S : Map) S.resize(10);
+    string Color, Army;
+    for(int i = 1; i <= 8; ++i)
     {
-        for(int y = 1; y <= 8; ++y)
+        for(int j = 1; j <= 8; ++j)
         {
-            string Army = Play_Ground[x][y].Get_Unit().first;
-            string Color = Play_Ground[x][y].Get_Unit().second;
-            if(Army == "None" || Color == "White") continue;
-            switch(Army[0])
-            {
-                case 'P':
-                    if(x == 2)
-                    {
-                        Update(x, y, x + 2, y, Play_Ground, Result, Max);
-                    }
-                    Update(x, y, x + 1, y, Play_Ground, Result, Max);
-                    Update(x, y, x + 1, y - 1, Play_Ground, Result, Max);
-                    Update(x, y, x + 1, y + 1, Play_Ground, Result, Max);
-                    break;
-                case 'R':
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x + i, y, Play_Ground)) break;
-                        Update(x, y, x + i, y, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x - i, y, Play_Ground)) break;
-                        Update(x, y, x - i, y, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x, y + i, Play_Ground)) break;
-                        Update(x, y, x, y + i, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x, y - i, Play_Ground)) break;
-                        Update(x, y, x, y - i, Play_Ground, Result, Max);
-                    }
-                    break;
-                case 'K':
-                    Update(x, y, x - 1, y - 2, Play_Ground, Result, Max);
-                    Update(x, y, x - 1, y + 2, Play_Ground, Result, Max);
-                    Update(x, y, x + 1, y - 2, Play_Ground, Result, Max);
-                    Update(x, y, x + 1, y + 2, Play_Ground, Result, Max);
-                    Update(x, y, x - 2, y - 1, Play_Ground, Result, Max);
-                    Update(x, y, x - 2, y + 1, Play_Ground, Result, Max);
-                    Update(x, y, x + 2, y - 1, Play_Ground, Result, Max);
-                    Update(x, y, x + 2, y + 1, Play_Ground, Result, Max);
-                    break;
-                case 'B':
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x + i, y + i, Play_Ground)) break;
-                        Update(x, y, x + i, y + i, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x + i, y - i, Play_Ground)) break;
-                        Update(x, y, x + i, y - i, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x - i, y + i, Play_Ground)) break;
-                        Update(x, y, x - i, y + i, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x - i, y - i, Play_Ground)) break;
-                        Update(x, y, x - i, y - i, Play_Ground, Result, Max);
-                    }
-                    break;
-                case 'Q':
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x + i, y, Play_Ground)) break;
-                        Update(x, y, x + i, y, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x - i, y, Play_Ground)) break;
-                        Update(x, y, x - i, y, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x, y + i, Play_Ground)) break;
-                        Update(x, y, x, y + i, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x, y - i, Play_Ground)) break;
-                        Update(x, y, x, y - i, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x + i, y + i, Play_Ground)) break;
-                        Update(x, y, x + i, y + i, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x + i, y - i, Play_Ground)) break;
-                        Update(x, y, x + i, y - i, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x - i, y + i, Play_Ground)) break;
-                        Update(x, y, x - i, y + i, Play_Ground, Result, Max);
-                    }
-                    for(int i = 1; i < 8; ++i)
-                    {
-                        if(!Can_Move(x, y, x - i, y - i, Play_Ground)) break;
-                        Update(x, y, x - i, y - i, Play_Ground, Result, Max);
-                    }
-                    break;
-                case 'k':
-                    Update(x, y, x, y + 1, Play_Ground, Result, Max);
-                    Update(x, y, x, y - 1, Play_Ground, Result, Max);
-                    Update(x, y, x + 1, y, Play_Ground, Result, Max);
-                    Update(x, y, x - 1, y, Play_Ground, Result, Max);
-                    Update(x, y, x + 1, y + 1, Play_Ground, Result, Max);
-                    Update(x, y, x + 1, y - 1, Play_Ground, Result, Max);
-                    Update(x, y, x - 1, y + 1, Play_Ground, Result, Max);
-                    Update(x, y, x - 1, y - 1, Play_Ground, Result, Max);
-                    break;
-            }
+            Army = Play_Ground[i][j].Get_Unit().first;
+            Color = Play_Ground[i][j].Get_Unit().second;
+            Map[i][j] = Army[0];
+            Map[i][j] += Color[0];
         }
     }
-    cout << Max << '\n';
-    int cnt = rand() % ((int) Result.size());
-    return Result[cnt];
+    return Find_Way(Map);
 }

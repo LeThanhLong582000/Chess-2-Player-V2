@@ -11,6 +11,7 @@ vector<vector<Chess_Box>> Play_Ground = Make_Play_Ground();
 int main()
 {
     srand(time(NULL));
+    clock_t St, End;
 //    Music music;
 //    music.openFromFile("NgauHung.ogg");
 //    music.setLoop(true);
@@ -45,21 +46,16 @@ int main()
 
             if(Playing == "Red")
             {
+                St = clock();
                 vector<int> Next;
-                while(true)
-                {
-                    Next = Next_Move(Play_Ground);
-                    if(Play_Ground[Next[0]][Next[1]].Get_Unit().second == "Red" && Can_Move(Next[0], Next[1], Next[2], Next[3], Play_Ground))
-                    {
-                        cout << Play_Ground[Next[0]][Next[1]].Get_Unit().first << '\n';
-                        cout << Next[0] << ' ' << Next[1] << ' ' << "To" << ' ' << Next[2] << ' ' << Next[3] << '\n';
-                        if(Play_Ground[Next[2]][Next[3]].Get_Unit().first == "king") window.close();
-                        Move(Next[0], Next[1], Next[2], Next[3], Play_Ground);
-                        Playing = "White";
-                        break;
-                    }
-                }
-                continue;
+                Next = Next_Move(Play_Ground);
+                cout << Play_Ground[Next[0]][Next[1]].Get_Unit().first << '\n';
+                cout << Next[0] << ' ' << Next[1] << ' ' << "To" << ' ' << Next[2] << ' ' << Next[3] << '\n';
+                if(Play_Ground[Next[2]][Next[3]].Get_Unit().first == "king") window.close();
+                Move(Next[0], Next[1], Next[2], Next[3], Play_Ground);
+                Playing = "White";
+                End = clock();
+                cout << End - St << '\n';
             }
 
             if(Moving)

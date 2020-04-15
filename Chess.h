@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include "Chess_Box.h"
+#include "Way.h"
 
 using namespace std;
 
