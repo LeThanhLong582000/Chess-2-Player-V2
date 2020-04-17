@@ -180,14 +180,14 @@ void Move(int From_x, int From_y, int To_x, int To_y, vector<vector<Chess_Box>> 
     }
 }
 
-void Update(int From_x, int From_y, int To_x, int To_y, vector<vector<Chess_Box>> Play_Ground, vector<vector<int>> &Result, int &Max)
-{
-    res++;
-    if(!Can_Move(From_x, From_y, To_x, To_y, Play_Ground)) return;
-    int Point = Play_Ground[To_x][To_y].Get_Point();
-    Max = max(Max, Point);
-    Result.push_back({From_x, From_y, To_x, To_y, Point});
-}
+//void Update(int From_x, int From_y, int To_x, int To_y, vector<vector<Chess_Box>> Play_Ground, vector<vector<int>> &Result, int &Max)
+//{
+//    res++;
+//    if(!Can_Move(From_x, From_y, To_x, To_y, Play_Ground)) return;
+//    int Point = Play_Ground[To_x][To_y].Get_Point();
+//    Max = max(Max, Point);
+//    Result.push_back({From_x, From_y, To_x, To_y, Point});
+//}
 
 vector<int> Next_Move(vector<vector<Chess_Box>> Play_Ground)
 {
